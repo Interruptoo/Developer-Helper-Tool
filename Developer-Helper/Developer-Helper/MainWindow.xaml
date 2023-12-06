@@ -3,10 +3,106 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Developer_Helper"
+        xmlns:local="clr-namespace:Developer_Helper.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Developer Helper v1.0.0" Height="700" Width="1280" MinHeight="600" MinWidth="600" Background="#D3D3D3">
 
+    <Window.Resources>
+        <ResourceDictionary>
+
+            <!--menu control-->
+            <Style x:Key="MenuItemStyle" TargetType="MenuItem">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="Foreground" Value="Black" />
+                <Setter Property="VerticalAlignment" Value="Center"/>
+
+                <Style.Triggers>
+                    <Trigger Property="IsMouseDirectlyOver" Value="True">
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="Background" Value="#0274ad"/>
+                    </Trigger>
+                    <Trigger Property="IsFocused" Value="True">
+                        <Setter Property="Background" Value="#0274ad"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4"/>
+            <RowDefinition Height="Auto" MinHeight="25"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Border BorderBrush="CadetBlue" BorderThickness="5"/>
+        <DockPanel Grid.Row="1" LastChildFill="False" Background="#F0F0F0">
+            <Menu VerticalAlignment="Center">
+                <MenuItem Header="Table" Style="{StaticResource MenuItemStyle}">
+
+                </MenuItem>
+                <MenuItem Header="SQL" Style="{StaticResource MenuItemStyle}">
+                </MenuItem>
+                <MenuItem Header="SourceGenerator" Style="{StaticResource MenuItemStyle}">
+
+                </MenuItem>
+                <MenuItem Header="EQS/DBSource" Style="{StaticResource MenuItemStyle}">
+
+                </MenuItem>
+                <MenuItem Header="EAM" Style="{StaticResource MenuItemStyle}">
+
+                </MenuItem>
+                <MenuItem Header="CodeGenerator" Style="{StaticResource MenuItemStyle}">
+
+                </MenuItem>
+                <MenuItem Header="SqlFormatter" Style="{StaticResource MenuItemStyle}">
+
+                </MenuItem>
+                <MenuItem Header="Patient" Style="{StaticResource MenuItemStyle}">
+
+                </MenuItem>
+                <MenuItem Header="User Info" Style="{StaticResource MenuItemStyle}">
+
+                </MenuItem>
+                <MenuItem Header="Dept Info" Style="{StaticResource MenuItemStyle}">
+
+                </MenuItem>
+                <MenuItem Header="Setting" Style="{StaticResource MenuItemStyle}">
+                    <MenuItem Header="정보" Style="{StaticResource MenuItemStyle}">
+
+                    </MenuItem>
+                    <MenuItem Header="패치노트" Style="{StaticResource MenuItemStyle}">
+
+                    </MenuItem>
+                    <MenuItem Header="설정" Style="{StaticResource MenuItemStyle}">
+
+                    </MenuItem>
+                </MenuItem>
+
+            </Menu>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+                <RadioButton GroupName="DBGubn" Content="DB1" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,5,0" IsChecked="True"/>
+                <RadioButton GroupName="DBGubn" Content="DB2" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center"  Margin="0,0,5,0"/>
+                <ComboBox Width="100" Height="20" Margin="0,0,5,0">
+
+                </ComboBox>
+                <Button Content="+" VerticalContentAlignment="Center" Width="20" Height="20" Margin="0,0,3,0">
+
+                </Button>
+                <Button Content="-" VerticalContentAlignment="Center" Width="20" Height="20" Margin="0,0,3,0">
+
+                </Button>
+                <Button Content="?" VerticalContentAlignment="Center" Width="20" Height="20" Margin="0,0,5,0">
+
+                </Button>
+
+            </StackPanel>
+        </DockPanel>
+        <local:SelectTableList Grid.Row="2" Visibility="Visible">
+            
+        </local:SelectTableList>
     </Grid>
 </Window>
