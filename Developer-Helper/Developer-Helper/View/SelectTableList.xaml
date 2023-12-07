@@ -5,7 +5,179 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Developer_Helper.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Background="#D3D3D3">
+             d:DesignHeight="800" d:DesignWidth="1280" Background="#D3D3D3">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="1.5*"/>
+        </Grid.ColumnDefinitions>
+        <!--row 0-->
+        <StackPanel Orientation="Horizontal">
+            <TextBox Height="20" Width="150" Margin="5,0,0,0" />
+            <TextBlock Text="키워드1, 키워드2 (AND 조건)" VerticalAlignment="Center" Margin="5,0,0,0"/>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Orientation="Horizontal">
+            <TextBox Height="20" Width="150" Margin="5,0,0,0" />
+        </StackPanel>
+        <DockPanel Grid.Column="4" LastChildFill="False">
+            <TextBox Height="20" Width="150" Margin="5,0,0,0" DockPanel.Dock="Left" />
+            <Button Content="조회" Height="20" Width="50" DockPanel.Dock="Right" Margin="0,0,5,0">
+                
+            </Button>
+        </DockPanel>
 
+        <!--row 1 col 0-->
+        <Grid Grid.Row="1" Background="#F0F0F0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="0.5*"/>
+            </Grid.RowDefinitions>
+            <DataGrid Margin="5" VerticalScrollBarVisibility="Auto">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="OWNER" Width="55">
+
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="TABLE" Width="70">
+
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="TABLE COMMENTS" Width="*">
+
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="" Width="10">
+
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="" Width="10">
+
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="" Width="10">
+
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <GridSplitter Grid.Row="1" Width="Auto" Height="5" HorizontalAlignment="Stretch" VerticalAlignment="Center"  ShowsPreview="True"/>
+            <DataGrid Grid.Row="2" Margin="5,0,5,5" VerticalScrollBarVisibility="Auto">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="INDEX NAME" Width="100">
+
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="COLUMN" Width="100">
+
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="COMMENT" Width="*">
+
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <GridSplitter Grid.Row="3" Width="Auto" Height="5" HorizontalAlignment="Stretch" VerticalAlignment="Center"  ShowsPreview="True"/>
+            <DataGrid Grid.Row="4" Margin="5,0,5,5" VerticalScrollBarVisibility="Auto">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="STATUS" Width="100">
+
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="VALUE" Width="*">
+
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <!--row 1 col 1-->
+        <GridSplitter Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Stretch" ShowsPreview="True" Width="5"/>
+        <!--row 1 col 2-->
+        <Grid Grid.Row="1" Grid.Column="2" Background="#F0F0F0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="5" />
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <DataGrid Margin="5">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="COLUMN" Width="100">
+                        
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="NULL" Width="40">
+
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="DATA TYPE" Width="80">
+
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="COMMENT" Width="*">
+
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <GridSplitter Grid.Row="1" Width="Auto" Height="5" HorizontalAlignment="Stretch" VerticalAlignment="Center"  ShowsPreview="True"/>
+            <DataGrid Grid.Row="2" Margin="5,0,5,5">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="COMN_GRP_CD">
+                        
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="COMN_CD">
+
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="COMN_CD_NM">
+
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="COMN_CD_EXPL">
+
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="SCRNMRKSEQ">
+
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="USE_YN">
+
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="DTRL1NM">
+
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="DTRL2NM">
+
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="DTRL3NM">
+
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="DTRL4NM">
+
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="DTRL5NM">
+
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <!--row 1 col 3-->
+        <GridSplitter Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Stretch" ShowsPreview="True" Width="5"/>
+        <!--row 1 col 4-->
+        <Grid Grid.Row="1" Grid.Column="4" Background="#F0F0F0">
+            <DataGrid Margin="5">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="OWNER" Width="60">
+                        
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="OBJ NAME" Width="*">
+
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="OBJ TYPE" Width="70">
+
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="STATUS">
+
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="" Width="10">
+
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
     
 </UserControl>

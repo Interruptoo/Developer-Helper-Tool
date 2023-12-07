@@ -57,6 +57,10 @@
                 </Grid.RowDefinitions>
                 <TextBox Margin="5,5,5,5" AutoWordSelection="True" AcceptsReturn="True" AcceptsTab="True" Text="" Style="{StaticResource MyWaterMarkStyle}" Tag="SELECT문만 조회가 가능합니다.(Ctrl+Enter)">
                 </TextBox>
+                <GridSplitter Grid.Row="1" Width="Auto" Height="5" HorizontalAlignment="Stretch" VerticalAlignment="Center"  ShowsPreview="True"/>
+                <RichTextBox Grid.Row="2" IsReadOnly="True" Margin="5,0,5,5">
+                    
+                </RichTextBox>
             </Grid>
         </Border>
     </Grid>
