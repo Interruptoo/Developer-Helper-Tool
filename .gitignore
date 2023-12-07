@@ -1,0 +1,7 @@
+#Developer-Helper-Tool ignore
+#2023-12-07 create
+
+
+
+*.vsidx
+bin/
