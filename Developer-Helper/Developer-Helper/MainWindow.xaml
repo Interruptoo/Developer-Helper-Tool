@@ -101,8 +101,13 @@
 
             </StackPanel>
         </DockPanel>
-        <local:SelectTableList Grid.Row="2" Visibility="Visible">
+        <!--Table Tab-->
+        <local:SelectTableList Grid.Row="2" Visibility="Collapsed">
             
         </local:SelectTableList>
+        <!--SQL Tab-->
+        <local:ExcuteSQLControl Grid.Row="2">
+            
+        </local:ExcuteSQLControl>
     </Grid>
 </Window>

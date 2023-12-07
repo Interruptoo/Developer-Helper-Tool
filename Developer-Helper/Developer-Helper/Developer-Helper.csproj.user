@@ -7,12 +7,18 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="View\ExcuteSQLControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\SelectTableList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ExcuteSQLControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\SelectTableList.xaml">
