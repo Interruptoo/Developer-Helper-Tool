@@ -6,3 +6,4 @@
 *.vsidx
 bin/
 obj/
+.vs/
