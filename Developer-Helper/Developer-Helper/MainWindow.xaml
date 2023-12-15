@@ -41,35 +41,16 @@
         <Border BorderBrush="CadetBlue" BorderThickness="5"/>
         <DockPanel Grid.Row="1" LastChildFill="False" Background="#F0F0F0">
             <Menu VerticalAlignment="Center">
-                <MenuItem Header="Table" Style="{StaticResource MenuItemStyle}">
-
-                </MenuItem>
-                <MenuItem Header="SQL" Style="{StaticResource MenuItemStyle}">
-                </MenuItem>
-                <MenuItem Header="SourceGenerator" Style="{StaticResource MenuItemStyle}">
-
-                </MenuItem>
-                <MenuItem Header="EQS/DBSource" Style="{StaticResource MenuItemStyle}">
-
-                </MenuItem>
-                <MenuItem Header="EAM" Style="{StaticResource MenuItemStyle}">
-
-                </MenuItem>
-                <MenuItem Header="CodeGenerator" Style="{StaticResource MenuItemStyle}">
-
-                </MenuItem>
-                <MenuItem Header="SqlFormatter" Style="{StaticResource MenuItemStyle}">
-
-                </MenuItem>
-                <MenuItem Header="Patient" Style="{StaticResource MenuItemStyle}">
-
-                </MenuItem>
-                <MenuItem Header="User Info" Style="{StaticResource MenuItemStyle}">
-
-                </MenuItem>
-                <MenuItem Header="Dept Info" Style="{StaticResource MenuItemStyle}">
-
-                </MenuItem>
+                <MenuItem Header="Table" Style="{StaticResource MenuItemStyle}" />
+                <MenuItem Header="SQL" Style="{StaticResource MenuItemStyle}" />
+                <MenuItem Header="SourceGenerator" Style="{StaticResource MenuItemStyle}" />
+                <MenuItem Header="EQS/DBSource" Style="{StaticResource MenuItemStyle}" />
+                <MenuItem Header="EAM" Style="{StaticResource MenuItemStyle}" />
+                <MenuItem Header="CodeGenerator" Style="{StaticResource MenuItemStyle}" />
+                <MenuItem Header="SqlFormatter" Style="{StaticResource MenuItemStyle}" />
+                <MenuItem Header="Patient" Style="{StaticResource MenuItemStyle}" />
+                <MenuItem Header="User Info" Style="{StaticResource MenuItemStyle}" />
+                <MenuItem Header="Dept Info" Style="{StaticResource MenuItemStyle}" />
                 <MenuItem Header="Setting" Style="{StaticResource MenuItemStyle}">
                     <MenuItem Header="정보" Style="{StaticResource MenuItemStyle}">
 
