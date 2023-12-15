@@ -10,9 +10,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="Util\" />
-    <Folder Include="ViewModel\" />
+    <Compile Remove="Util\**" />
+    <EmbeddedResource Remove="Util\**" />
+    <None Remove="Util\**" />
+    <Page Remove="Util\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WpfMvvm.WpfCommands" Version="0.0.0.1" />
   </ItemGroup>
 
 </Project>

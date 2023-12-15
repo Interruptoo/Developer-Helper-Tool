@@ -4,9 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Developer_Helper.View"
+        xmlns:ViewModel="clr-namespace:Developer_Helper.ViewModel"
         mc:Ignorable="d"
         Title="Developer Helper v1.0.0" Height="700" Width="1280" MinHeight="600" MinWidth="600" Background="#D3D3D3">
 
+    <Window.DataContext>
+        <ViewModel:MainWindow_ViewModel />
+    </Window.DataContext>
     <Window.Resources>
         <ResourceDictionary>
 
@@ -41,8 +45,8 @@
         <Border BorderBrush="CadetBlue" BorderThickness="5"/>
         <DockPanel Grid.Row="1" LastChildFill="False" Background="#F0F0F0">
             <Menu VerticalAlignment="Center">
-                <MenuItem Header="Table" Style="{StaticResource MenuItemStyle}" />
-                <MenuItem Header="SQL" Style="{StaticResource MenuItemStyle}" />
+                <MenuItem Header="Table" Style="{StaticResource MenuItemStyle}" Command="{Binding SelectedMenuItem}"/>
+                <MenuItem Header="SQL" Style="{StaticResource MenuItemStyle}" Command="{Binding SelectedMenuItem}" />
                 <MenuItem Header="SourceGenerator" Style="{StaticResource MenuItemStyle}" />
                 <MenuItem Header="EQS/DBSource" Style="{StaticResource MenuItemStyle}" />
                 <MenuItem Header="EAM" Style="{StaticResource MenuItemStyle}" />
@@ -83,12 +87,16 @@
             </StackPanel>
         </DockPanel>
         <!--Table Tab-->
-        <local:SelectTableList Grid.Row="2" Visibility="Visible">
-            
+        <local:SelectTableList Grid.Row="2" >
+            <Style TargetType="local:SelectTableList">
+                <Setter Property="Visibility" Value="Collapsed"/>
+            </Style>
         </local:SelectTableList>
         <!--SQL Tab-->
-        <local:ExcuteSQLControl Grid.Row="2" Visibility="Collapsed">
-            
+        <local:ExcuteSQLControl Grid.Row="2">
+            <Style TargetType="local:ExcuteSQLControl">
+                <Setter Property="Visibility" Value="Collapsed"/>
+            </Style>
         </local:ExcuteSQLControl>
     </Grid>
 </Window>
