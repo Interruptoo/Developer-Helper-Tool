@@ -12,6 +12,6 @@ namespace Developer_Helper.Model
         public string TableName { get; }
         public string Owner {  get; }
         public string TableCommant { get; }
-                
+        
     }
 }

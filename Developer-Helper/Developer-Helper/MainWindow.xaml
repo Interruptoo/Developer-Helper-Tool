@@ -45,7 +45,7 @@
         <Border BorderBrush="CadetBlue" BorderThickness="5"/>
         <DockPanel Grid.Row="1" LastChildFill="False" Background="#F0F0F0">
             <Menu VerticalAlignment="Center">
-                <MenuItem Header="Table" Style="{StaticResource MenuItemStyle}" Command="{Binding SelectedMenuItem}"/>
+                <MenuItem Header="Table" Style="{StaticResource MenuItemStyle}" Command="{Binding DataContext.SelectedMenuItem, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding}" />
                 <MenuItem Header="SQL" Style="{StaticResource MenuItemStyle}" Command="{Binding SelectedMenuItem}" />
                 <MenuItem Header="SourceGenerator" Style="{StaticResource MenuItemStyle}" />
                 <MenuItem Header="EQS/DBSource" Style="{StaticResource MenuItemStyle}" />
