@@ -5,8 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Developer_Helper.View"
         mc:Ignorable="d"
-        Title="Connect to a database" Height="500" Width="1000" Background="#D3D3D3">
+        Title="Connect to a database" Height="500" Width="1000" Background="#FFF0F0F0" ResizeMode="NoResize">
+    
+    <Window.Resources>
+        <ResourceDictionary>
+            <!--Button Style-->
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="Height" Value="25"/>
+                <Setter Property="FontSize" Value="11"/>
+                <Setter Property="FontWeight" Value="DemiBold"/>
+                <Setter Property="Background" Value="#FFE1E1E1"/>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <Border BorderThickness="0,0,0,1" BorderBrush="#FFA0A0A0" Background="White">
+            <DockPanel Grid.Row="0"  LastChildFill="False">
+                <StackPanel Orientation="Vertical" DockPanel.Dock="Left" Margin="5,10,0,0">
+                    <Label Content="Oracle Connection Settings" FontSize="15" FontWeight="Bold"/>
+                    <Label Content="Oracle connection settings" FontSize="12" Margin="18,0,0,0"/>
+                </StackPanel>
+                <Image DockPanel.Dock="Right" Source="/Image/Oracle.png" Width="100" Margin="0,0,10,0"/>
+            </DockPanel>
+        </Border>
+        <TabControl Grid.Row="1" Margin="5">
+            <TabItem  Header="Main" IsSelected="True">
+                <ContentControl />
+            </TabItem>
+            <TabItem  Header="Oracle Properties">
+                <ContentControl />
+            </TabItem>
+            <TabItem  Header="Driver properties" Visibility="Collapsed"/>
+            <TabItem  Header="SSH" Visibility="Collapsed"/>
+            <TabItem  Header="Proxh" Visibility="Collapsed"/>
+        </TabControl>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Separator Grid.Row="0" Width="Auto" Height="5" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+            <DockPanel Grid.Row="1" LastChildFill="False">
+                <Button Style="{StaticResource ButtonStyle}" Content="Test Connection..." Margin="10,0,0,0" Width="120"/>
+                <Button Style="{StaticResource ButtonStyle}" Content="Cancel" DockPanel.Dock="Right" Margin="0,0,10,0" Width="90"/>
+                <Button Style="{StaticResource ButtonStyle}" Content="Finish" DockPanel.Dock="Right" Margin="0,0,5,0" Width="90"/>
+            </DockPanel>
+        </Grid>
     </Grid>
 </Window>

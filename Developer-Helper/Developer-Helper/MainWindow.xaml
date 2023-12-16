@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Developer_Helper.View"
         xmlns:ViewModel="clr-namespace:Developer_Helper.ViewModel"
         mc:Ignorable="d"
-        Title="Developer Helper v1.0.0" Height="700" Width="1280" MinHeight="600" MinWidth="600" Background="#D3D3D3">
+        Title="Developer Helper v1.0.0" Height="700" Width="1280" MinHeight="600" MinWidth="600" Background="#FFF0F0F0">
 
     <Window.DataContext>
         <ViewModel:MainWindow_ViewModel />
