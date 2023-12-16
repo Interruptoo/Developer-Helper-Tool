@@ -13,6 +13,9 @@
     <Compile Update="View\SelectTableList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\SetDBConnetion_View.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\SourceGenerator.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -25,6 +28,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\SelectTableList.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\SetDBConnetion_View.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\SourceGenerator.xaml">
