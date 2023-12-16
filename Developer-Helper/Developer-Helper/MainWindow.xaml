@@ -45,8 +45,8 @@
         <Border BorderBrush="CadetBlue" BorderThickness="5"/>
         <DockPanel Grid.Row="1" LastChildFill="False" Background="#F0F0F0">
             <Menu VerticalAlignment="Center">
-                <MenuItem Header="Table" Style="{StaticResource MenuItemStyle}" Command="{Binding DataContext.SelectedMenuItem, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding}" />
-                <MenuItem Header="SQL" Style="{StaticResource MenuItemStyle}" Command="{Binding SelectedMenuItem}" />
+                <MenuItem x:Name="TableMenu" Header="Table" Style="{StaticResource MenuItemStyle}" Tag="Table" Command="{Binding DataContext.SelectedMenuItem, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding ElementName=TableMenu}" />
+                <MenuItem x:Name="SQLMenu" Header="SQL" Style="{StaticResource MenuItemStyle}" Tag="SQL" Command="{Binding DataContext.SelectedMenuItem, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding ElementName=SQLMenu}" />
                 <MenuItem Header="SourceGenerator" Style="{StaticResource MenuItemStyle}" />
                 <MenuItem Header="EQS/DBSource" Style="{StaticResource MenuItemStyle}" />
                 <MenuItem Header="EAM" Style="{StaticResource MenuItemStyle}" />
@@ -56,17 +56,10 @@
                 <MenuItem Header="User Info" Style="{StaticResource MenuItemStyle}" />
                 <MenuItem Header="Dept Info" Style="{StaticResource MenuItemStyle}" />
                 <MenuItem Header="Setting" Style="{StaticResource MenuItemStyle}">
-                    <MenuItem Header="정보" Style="{StaticResource MenuItemStyle}">
-
-                    </MenuItem>
-                    <MenuItem Header="패치노트" Style="{StaticResource MenuItemStyle}">
-
-                    </MenuItem>
-                    <MenuItem Header="설정" Style="{StaticResource MenuItemStyle}">
-
-                    </MenuItem>
+                    <MenuItem Header="정보" Style="{StaticResource MenuItemStyle}" />
+                    <MenuItem Header="패치노트" Style="{StaticResource MenuItemStyle}" />
+                    <MenuItem Header="설정" Style="{StaticResource MenuItemStyle}" />
                 </MenuItem>
-
             </Menu>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
                 <RadioButton GroupName="DBGubn" Content="DB1" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,5,0" IsChecked="True"/>
@@ -86,17 +79,20 @@
 
             </StackPanel>
         </DockPanel>
-        <!--Table Tab-->
+        <ContentControl Grid.Row="2" x:Name="contentControl" Content="{Binding ViewComponent}">
+            
+        </ContentControl>
+        <!--Table Tab--><!--
         <local:SelectTableList Grid.Row="2" >
             <Style TargetType="local:SelectTableList">
                 <Setter Property="Visibility" Value="Collapsed"/>
             </Style>
         </local:SelectTableList>
-        <!--SQL Tab-->
+        --><!--SQL Tab--><!--
         <local:ExcuteSQLControl Grid.Row="2">
             <Style TargetType="local:ExcuteSQLControl">
                 <Setter Property="Visibility" Value="Collapsed"/>
             </Style>
-        </local:ExcuteSQLControl>
+        </local:ExcuteSQLControl>-->
     </Grid>
 </Window>

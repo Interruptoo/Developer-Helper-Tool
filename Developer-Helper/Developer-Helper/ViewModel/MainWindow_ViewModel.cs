@@ -1,14 +1,18 @@
-﻿using System;
+﻿using Developer_Helper.Class;
+using Developer_Helper.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 using WpfMvvm.Commands;
 
 namespace Developer_Helper.ViewModel
 {
-    class MainWindow_ViewModel
+    class MainWindow_ViewModel : ViewModelBase
     {
         #region Const
 
@@ -19,7 +23,15 @@ namespace Developer_Helper.ViewModel
         #endregion Member Variables
 
         #region View Properties
-        
+        private UserControl? _viewComponent;
+        public UserControl? ViewComponent
+        {
+            get { return _viewComponent; }
+            set 
+            {
+                if (_viewComponent != value) _viewComponent = value; OnpropertyChanged("ViewComponent");                
+            }
+        }
         #endregion View Properties
 
         #region Model Properties
@@ -37,19 +49,45 @@ namespace Developer_Helper.ViewModel
             get
             {
                 if (_selectedMenuItem == null)
-                    _selectedMenuItem = new RelayCommand(p => SetVisibleUserControl());
+                    _selectedMenuItem = new RelayCommand(prop => SetVisibleUserControl(prop));
 
                 return _selectedMenuItem;
-                                    
+
             }
 
         }
 
         #endregion Command
 
-        #region Method
-        private void SetVisibleUserControl()
+        #region Method                
+        private void SetVisibleUserControl(object p)
         {
+            if (p == null) return;            
+
+            string selectedMenu = ((System.Windows.FrameworkElement)p).Tag.ToString();
+
+            ViewComponent = GetUserControl(selectedMenu);
+
+        }
+
+        private UserControl GetUserControl(string SelectedMenu)
+        {
+            UserControl? userControl = null;
+
+            switch (SelectedMenu)
+            {
+                case "Table":
+                    userControl = new SelectTableList();
+                    break;
+                case "SQL":
+                    userControl = new ExcuteSQLControl();
+                    break;
+                default:                    
+                    break;
+            }
+
+            return userControl;
+
 
         }
         #endregion Method
