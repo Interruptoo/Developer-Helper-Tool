@@ -16,6 +16,9 @@
     <Compile Update="View\SetDBConnetion_View.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\SettingDetail_View.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\SourceGenerator.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -27,10 +30,16 @@
     <Page Update="View\ExcuteSQLControl.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\Resource\CommonStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\SelectTableList.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\SetDBConnetion_View.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\SettingDetail_View.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\SourceGenerator.xaml">

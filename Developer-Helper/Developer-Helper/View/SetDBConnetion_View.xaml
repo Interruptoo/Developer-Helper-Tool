@@ -37,7 +37,7 @@
             <TabItem  Header="Main" IsSelected="True">
                 <ContentControl />
             </TabItem>
-            <TabItem  Header="Oracle Properties">
+            <TabItem  Header="ConnectionList">
                 <ContentControl />
             </TabItem>
             <TabItem  Header="Driver properties" Visibility="Collapsed"/>
@@ -54,6 +54,7 @@
                 <Button Style="{StaticResource ButtonStyle}" Content="Test Connection..." Margin="10,0,0,0" Width="120"/>
                 <Button Style="{StaticResource ButtonStyle}" Content="Cancel" DockPanel.Dock="Right" Margin="0,0,10,0" Width="90"/>
                 <Button Style="{StaticResource ButtonStyle}" Content="Finish" DockPanel.Dock="Right" Margin="0,0,5,0" Width="90"/>
+                <Button Style="{StaticResource ButtonStyle}" Content="Clear" DockPanel.Dock="Right" Margin="0,0,5,0" Width="90"/>
             </DockPanel>
         </Grid>
     </Grid>
