@@ -58,7 +58,7 @@
                 <MenuItem Header="Setting" Style="{StaticResource MenuItemStyle}">
                     <MenuItem Header="정보" Style="{StaticResource MenuItemStyle}" />
                     <MenuItem Header="패치노트" Style="{StaticResource MenuItemStyle}" />
-                    <MenuItem Header="설정" Style="{StaticResource MenuItemStyle}" />
+                    <MenuItem x:Name="DBConnection" Header="DBConnection" Style="{StaticResource MenuItemStyle}" Tag="DBConnection" Command="{Binding DataContext.SelectPopupMenuItem, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding ElementName=DBConnection}"/>
                 </MenuItem>
             </Menu>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
@@ -80,19 +80,7 @@
             </StackPanel>
         </DockPanel>
         <ContentControl Grid.Row="2" x:Name="contentControl" Content="{Binding ViewComponent}">
-            
+
         </ContentControl>
-        <!--Table Tab--><!--
-        <local:SelectTableList Grid.Row="2" >
-            <Style TargetType="local:SelectTableList">
-                <Setter Property="Visibility" Value="Collapsed"/>
-            </Style>
-        </local:SelectTableList>
-        --><!--SQL Tab--><!--
-        <local:ExcuteSQLControl Grid.Row="2">
-            <Style TargetType="local:ExcuteSQLControl">
-                <Setter Property="Visibility" Value="Collapsed"/>
-            </Style>
-        </local:ExcuteSQLControl>-->
     </Grid>
 </Window>
