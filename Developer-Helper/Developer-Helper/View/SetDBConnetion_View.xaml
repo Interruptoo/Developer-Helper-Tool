@@ -10,12 +10,9 @@
     <Window.Resources>
         <ResourceDictionary>
             <!--Button Style-->
-            <Style x:Key="ButtonStyle" TargetType="Button">
-                <Setter Property="Height" Value="25"/>
-                <Setter Property="FontSize" Value="11"/>
-                <Setter Property="FontWeight" Value="DemiBold"/>
-                <Setter Property="Background" Value="#FFE1E1E1"/>
-            </Style>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resource/CommonStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
@@ -35,10 +32,12 @@
         </Border>
         <TabControl Grid.Row="1" Margin="5">
             <TabItem  Header="Main" IsSelected="True">
-                <ContentControl />
+                <local:SettingDetail_View>
+                    
+                </local:SettingDetail_View>
             </TabItem>
             <TabItem  Header="ConnectionList">
-                <ContentControl />
+                
             </TabItem>
             <TabItem  Header="Driver properties" Visibility="Collapsed"/>
             <TabItem  Header="SSH" Visibility="Collapsed"/>
@@ -51,10 +50,10 @@
             </Grid.RowDefinitions>
             <Separator Grid.Row="0" Width="Auto" Height="5" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
             <DockPanel Grid.Row="1" LastChildFill="False">
-                <Button Style="{StaticResource ButtonStyle}" Content="Test Connection..." Margin="10,0,0,0" Width="120"/>
-                <Button Style="{StaticResource ButtonStyle}" Content="Cancel" DockPanel.Dock="Right" Margin="0,0,10,0" Width="90"/>
-                <Button Style="{StaticResource ButtonStyle}" Content="Finish" DockPanel.Dock="Right" Margin="0,0,5,0" Width="90"/>
-                <Button Style="{StaticResource ButtonStyle}" Content="Clear" DockPanel.Dock="Right" Margin="0,0,5,0" Width="90"/>
+                <Button Style="{StaticResource CommonButtonStyle}" Content="Test Connection..." Margin="10,0,0,0" Width="120"/>
+                <Button Style="{StaticResource CommonButtonStyle}" Content="Cancel" DockPanel.Dock="Right" Margin="0,0,10,0" Width="90"/>
+                <Button Style="{StaticResource CommonButtonStyle}" Content="Finish" DockPanel.Dock="Right" Margin="0,0,5,0" Width="90"/>
+                <Button Style="{StaticResource CommonButtonStyle}" Content="Clear" DockPanel.Dock="Right" Margin="0,0,5,0" Width="90"/>
             </DockPanel>
         </Grid>
     </Grid>

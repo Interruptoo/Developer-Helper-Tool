@@ -26,4 +26,11 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="CommonButtonStyle" TargetType="Button">
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="FontSize" Value="11"/>
+        <Setter Property="FontWeight" Value="DemiBold"/>
+        <Setter Property="Background" Value="#FFE1E1E1"/>
+    </Style>
 </ResourceDictionary>

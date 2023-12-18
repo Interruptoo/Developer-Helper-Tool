@@ -21,7 +21,7 @@
         </Grid.RowDefinitions>
         <Grid>
             <DockPanel LastChildFill="False">
-                <Button Content="실행" DockPanel.Dock="Right" Width="50" Height="20" Margin="0,0,5,0">
+                <Button Content="실행" DockPanel.Dock="Right" Style="{StaticResource CommonButtonStyle}" Width="50" Margin="0,0,5,0">
 
                 </Button>
             </DockPanel>

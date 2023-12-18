@@ -6,6 +6,14 @@
              xmlns:local="clr-namespace:Developer_Helper.View"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1280" Background="#FFF0F0F0">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resource/CommonStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -28,7 +36,7 @@
         </StackPanel>
         <DockPanel Grid.Column="4" LastChildFill="False">
             <TextBox Height="20" Width="150" Margin="5,0,0,0" DockPanel.Dock="Left" />
-            <Button Content="조회" Height="20" Width="50" DockPanel.Dock="Right" Margin="0,0,5,0">
+            <Button Content="조회" Width="50" Style="{StaticResource CommonButtonStyle}" DockPanel.Dock="Right" Margin="0,0,5,0">
                 
             </Button>
         </DockPanel>
