@@ -11,7 +11,7 @@ namespace Developer_Helper.Class
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        protected void OnpropertyChanged(string propertyName)
+        protected void OnPropertyChanged(string propertyName)
         {
             if(PropertyChanged != null)
             {

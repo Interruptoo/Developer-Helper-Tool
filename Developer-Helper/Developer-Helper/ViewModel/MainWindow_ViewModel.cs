@@ -33,7 +33,7 @@ namespace Developer_Helper.ViewModel
             get { return _viewComponent; }
             set 
             {
-                if (_viewComponent != value) _viewComponent = value; OnpropertyChanged("ViewComponent");                
+                if (_viewComponent != value) _viewComponent = value; OnPropertyChanged("ViewComponent");                
             }
         }
 
@@ -46,7 +46,7 @@ namespace Developer_Helper.ViewModel
             get { return _popupComponent; }
             set
             {
-                if (_popupComponent != value) _popupComponent = value; OnpropertyChanged("PopupComponent");
+                if (_popupComponent != value) _popupComponent = value; OnPropertyChanged("PopupComponent");
             }
         }        
         #endregion View Properties
