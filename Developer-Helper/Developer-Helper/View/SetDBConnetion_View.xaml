@@ -3,10 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Developer_Helper.View"
+        xmlns:View="clr-namespace:Developer_Helper.View"
+        xmlns:ViewModel="clr-namespace:Developer_Helper.ViewModel"
         mc:Ignorable="d"
         Title="Connect to a database" Height="500" Width="1000" Background="#FFF0F0F0" ResizeMode="NoResize">
-    
+
+    <Window.DataContext>
+        <ViewModel:SetDBConnection_ViewModel />
+    </Window.DataContext>
     <Window.Resources>
         <ResourceDictionary>
             <!--Button Style-->
@@ -32,9 +36,9 @@
         </Border>
         <TabControl Grid.Row="1" Margin="5">
             <TabItem  Header="Main" IsSelected="True">
-                <local:SettingDetail_View>
+                <View:SettingDetail_View>
                     
-                </local:SettingDetail_View>
+                </View:SettingDetail_View>
             </TabItem>
             <TabItem  Header="ConnectionList">
                 
@@ -51,7 +55,7 @@
             <Separator Grid.Row="0" Width="Auto" Height="5" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
             <DockPanel Grid.Row="1" LastChildFill="False">
                 <Button Style="{StaticResource CommonButtonStyle}" Content="Test Connection..." Margin="10,0,0,0" Width="120"/>
-                <Button Style="{StaticResource CommonButtonStyle}" Content="Cancel" DockPanel.Dock="Right" Margin="0,0,10,0" Width="90"/>
+                <Button Style="{StaticResource CommonButtonStyle}" Content="Cancel" DockPanel.Dock="Right" Margin="0,0,10,0" Width="90" Click="Close_Click"/>
                 <Button Style="{StaticResource CommonButtonStyle}" Content="Finish" DockPanel.Dock="Right" Margin="0,0,5,0" Width="90"/>
                 <Button Style="{StaticResource CommonButtonStyle}" Content="Clear" DockPanel.Dock="Right" Margin="0,0,5,0" Width="90"/>
             </DockPanel>

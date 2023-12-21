@@ -133,6 +133,11 @@ namespace Developer_Helper.ViewModel
             return userControl;
         }
 
+        /// <summary>
+        /// author : yuminhio
+        /// date   : 2023-12-18
+        /// description : 선택한 메뉴에 따라 popup호출
+        /// </summary>
         private void CallPopupMenu(object p)
         {
             if (p == null) return;
@@ -142,6 +147,8 @@ namespace Developer_Helper.ViewModel
             SetDBConnetion_View pop = new SetDBConnetion_View();
             pop.ShowDialog();
         }                        
+
+
 
         #endregion Method
     }
