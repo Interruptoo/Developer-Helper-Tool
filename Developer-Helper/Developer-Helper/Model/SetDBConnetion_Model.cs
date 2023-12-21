@@ -85,6 +85,10 @@ namespace Developer_Helper.Model
 
 
         #endregion 객체Property정의 End
+
+        #region 객체메소드
+        
+        #endregion
     }
 
 
