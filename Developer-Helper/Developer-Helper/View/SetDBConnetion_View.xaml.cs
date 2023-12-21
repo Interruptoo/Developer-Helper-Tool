@@ -24,9 +24,42 @@ namespace Developer_Helper.View
             InitializeComponent();
         }
 
+        #region Event
+        /// <summary>
+        /// author : yuminhio
+        /// date   : 2023-12-21
+        /// description : Window Close Event
+        /// </summary>
         private void Close_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
+
+        /// <summary>
+        /// author : yuminhio
+        /// date   : 2023-12-21
+        /// description : 입력한 Connection 정보를 저장하고 닫는다.
+        /// </summary>
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            Close();
+        }
+
+        #endregion Event End
+
+        #region Method
+        /// <summary>
+        /// author : yuminhio
+        /// date   : 2023-12-21
+        /// description : Window Close
+        /// </summary>
+        private void Close()
+        {
+            Close();
+        }
+        #endregion Method End
+        
     }
 }
