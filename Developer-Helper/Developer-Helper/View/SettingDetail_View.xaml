@@ -3,9 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Developer_Helper.View"
+             xmlns:View="clr-namespace:Developer_Helper.View"
+             xmlns:ViewModel="clr-namespace:Developer_Helper.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="White">
+
+    <UserControl.DataContext>
+        <ViewModel:SettingDetail_ViewModel />
+    </UserControl.DataContext>
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -35,10 +40,10 @@
                     </Grid.ColumnDefinitions>
                     <Label Grid.Row="0" Grid.Column="0" Content="Host : " />
                     <Label Grid.Row="1" Grid.Column="0" Content="Database : "/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Height="18" Tag="localhost" Style="{StaticResource MyWaterMarkStyle}" FontSize="9" />
-                    <TextBox Grid.Row="1" Grid.Column="1" Height="18" Tag="ORCL" Style="{StaticResource MyWaterMarkStyle}" FontSize="9" />
+                    <TextBox Grid.Row="0" Grid.Column="1" Height="18" Tag="localhost" Style="{StaticResource MyWaterMarkStyle}" FontSize="9" Text="{Binding CurrentHost}" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Height="18" Tag="ORCL" Style="{StaticResource MyWaterMarkStyle}" FontSize="9" Text="{Binding CurrentDataBase}" />
                     <Label Grid.Row="0" Grid.Column="2" Content="port : "/>
-                    <TextBox Grid.Row="0" Grid.Column="3" Height="18"/>
+                    <TextBox Grid.Row="0" Grid.Column="3" Height="18" Text="{Binding CurrentPort}"/>
                 </Grid>
             </GroupItem>
         </GroupBox>
@@ -57,8 +62,8 @@
                     </Grid.ColumnDefinitions>
                     <Label Grid.Row="0" Grid.Column="0" Content="Username : "/>
                     <Label Grid.Row="1" Grid.Column="0" Content="Password : "/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Height="18" Tag="system" Style="{StaticResource MyWaterMarkStyle}" FontSize="8"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Height="18"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Height="18" Tag="system" Style="{StaticResource MyWaterMarkStyle}" FontSize="8" Text="{Binding CurrentUserName}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Height="18" Text="{Binding CurrentPassWord}"/>
                 </Grid>
             </GroupItem>
         </GroupBox>
@@ -75,9 +80,9 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Row="0" Grid.Column="0" Content="Connection name : "/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Height="18"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Height="18" Text="{Binding CurrentConnectionName}"/>
                     <Label Grid.Row="1" Grid.Column="0" Content="Description : "/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Height="18"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Height="18" Text="{Binding CurrentDescription}"/>
                     <Label Grid.Row="2" Grid.Column="0" Content="Connection Folder : "/>
                 </Grid>
             </GroupItem>
