@@ -1,7 +1,9 @@
 ﻿using Developer_Helper.Class;
+using Developer_Helper.Model;
 using Developer_Helper.View;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Channels;
@@ -23,19 +25,54 @@ namespace Developer_Helper.ViewModel
         #endregion View Properties End
 
         #region Model Properties
+        ConnectionInformationModel connectionInformationModel;
+
+        private SettingDetail_ViewModel _settingDetail;
+        public SettingDetail_ViewModel SettingDetail
+        {
+            get => _settingDetail;            
+            set => SetProperty(ref _settingDetail, value);
+        }        
 
         #endregion Model Properties End
 
         #region Constructors
+        public SetDBConnection_ViewModel()
+        {
+            if (LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
 
+            this.Init();
+        }
         #endregion Constructors End
 
         #region Command
-        
+        private ICommand _clearData;
+        public ICommand ClearData
+        {
+            get
+            {
+                if (_clearData == null) _clearData = new RelayCommand(prop => ClearViewProperty());
+                return _clearData;
+            }
+        }
         #endregion Command End
 
         #region Method
-        
+        /// <summary>
+        /// author : yuminhio
+        /// date   : 2023-12-22
+        /// description : 초기화
+        /// </summary>
+        private void Init()
+        {
+            
+        }
+
+
+        private void ClearViewProperty()
+        {
+            SettingDetail = new SettingDetail_ViewModel();
+        }
 
         #endregion Method End
     }

@@ -30,11 +30,13 @@ namespace Developer_Helper.ViewModel
         private UserControl? _viewComponent;
         public UserControl? ViewComponent
         {
-            get { return _viewComponent; }
-            set 
-            {
-                if (_viewComponent != value) _viewComponent = value; OnPropertyChanged("ViewComponent");                
-            }
+            //get { return _viewComponent; }
+            //set 
+            //{
+            //    if (_viewComponent != value) _viewComponent = value; OnPropertyChanged("ViewComponent");                
+            //}
+            get => _viewComponent;
+            set => SetProperty(ref _viewComponent, value);
         }
 
         /// <summary>
@@ -43,11 +45,13 @@ namespace Developer_Helper.ViewModel
         private UserControl? _popupComponent;
         public UserControl? PopupComponent
         {
-            get { return _popupComponent; }
-            set
-            {
-                if (_popupComponent != value) _popupComponent = value; OnPropertyChanged("PopupComponent");
-            }
+            //get { return _popupComponent; }
+            //set
+            //{
+            //    if (_popupComponent != value) _popupComponent = value; OnPropertyChanged("PopupComponent");
+            //}
+            get => _popupComponent;
+            set => SetProperty(ref _popupComponent, value);
         }        
         #endregion View Properties
 
