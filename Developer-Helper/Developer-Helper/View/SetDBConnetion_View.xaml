@@ -7,10 +7,7 @@
         xmlns:ViewModel="clr-namespace:Developer_Helper.ViewModel"
         mc:Ignorable="d"
         Title="Connect to a database" Height="500" Width="1000" Background="#FFF0F0F0" ResizeMode="NoResize">
-
-    <Window.DataContext>
-        <ViewModel:SetDBConnection_ViewModel />
-    </Window.DataContext>
+    
     <Window.Resources>
         <ResourceDictionary>
             <!--Button Style-->

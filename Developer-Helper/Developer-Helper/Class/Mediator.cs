@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Developer_Helper.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
@@ -7,8 +8,37 @@ using System.Threading.Tasks;
 
 namespace Developer_Helper.Class
 {
-    public class Mediator
-    {                
+    class Mediator
+    {
+        #region Instance        
+        private static Mediator _instance;
+        public static Mediator Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new Mediator();
+                }
+                return _instance;
+            }
+        }
+
+        private ConnectionInformationModel _sharedModel;
+        public ConnectionInformationModel SharedModel
+        {
+            get
+            {
+                if (_sharedModel == null)
+                {
+                    _sharedModel = new ConnectionInformationModel();
+                }
+                return _sharedModel;
+            }
+        }
+        
+        #endregion
+
         #region add parameter
         private readonly Dictionary<string, Action<object>> _colleagues = new Dictionary<string, Action<object>>();
 
@@ -39,7 +69,6 @@ namespace Developer_Helper.Class
         }
         #endregion
 
-
         #region no parameter
         private readonly Dictionary<string, Action> _colleagues_noparam = new Dictionary<string, Action>();
 
@@ -68,8 +97,6 @@ namespace Developer_Helper.Class
                 _colleagues_noparam[message]?.Invoke();
             }
         }
-        #endregion
-
-
+        #endregion        
     }
 }

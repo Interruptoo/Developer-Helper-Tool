@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Developer_Helper.Class;
+using Developer_Helper.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,8 @@ namespace Developer_Helper.View
         public SetDBConnetion_View()
         {
             InitializeComponent();
+            
+            DataContext = new SetDBConnection_ViewModel(new Mediator());
         }
 
         #region Event

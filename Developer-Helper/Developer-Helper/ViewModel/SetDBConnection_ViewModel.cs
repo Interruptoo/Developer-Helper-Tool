@@ -18,35 +18,26 @@ namespace Developer_Helper.ViewModel
     {
         #region Const
         private Mediator _mediator;
-        #endregion Const
-
-        #region View Properties
-
-        #endregion View Properties End
+        #endregion Const        
 
         #region Model Properties
-        ConnectionInformationModel connectionInformationModel;
-
-        private SettingDetail_ViewModel _settingDetail;
-        public SettingDetail_ViewModel SettingDetail
+        private ConnectionInformationModel _connectionInformation;
+        public ConnectionInformationModel ConnectionInformation
         {
-            get => _settingDetail;            
-            set => SetProperty(ref _settingDetail, value);
-        }        
+            get => _connectionInformation;
+            set => SetProperty(ref _connectionInformation, value, nameof(ConnectionInformation));
+        }
 
         #endregion Model Properties End
 
-        #region Constructors
-        public SetDBConnection_ViewModel()
-        {
-            if (LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
-
-            this.Init();            
-        }
-
+        #region Constructors        
         public SetDBConnection_ViewModel(Mediator mediator)
         {
             _mediator = mediator;
+
+            ConnectionInformation = Mediator.Instance.SharedModel;
+
+            new SettingDetail_ViewModel(_mediator);
 
         }
         #endregion Constructors End
@@ -71,13 +62,15 @@ namespace Developer_Helper.ViewModel
         /// </summary>
         private void Init()
         {
-            _mediator = new Mediator();
-            new SettingDetail_ViewModel(_mediator);
+            
         }
-
 
         private void ClearViewProperty()
         {
+            Mediator.Instance.SharedModel.HostAddress = string.Empty;
+            Mediator.Instance.SharedModel.DataBase = string.Empty;
+            Mediator.Instance.SharedModel.Port = string.Empty;
+
             _mediator.Notify("SettingDetail_Clear");
 
         }

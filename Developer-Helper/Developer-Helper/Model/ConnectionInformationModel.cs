@@ -27,6 +27,7 @@ namespace Developer_Helper.Model
         private string _dataBase;
         private string _connectionName;
         private string _description;
+
         #endregion 객체변수선언 END
 
         #region 객체Property정의        
@@ -37,7 +38,7 @@ namespace Developer_Helper.Model
         public string HostAddress
         {            
             get => _hostAddress;
-            set => SetProperty(ref _hostAddress, value);
+            set => SetProperty(ref _hostAddress, value, nameof(HostAddress));
         }
 
         /// <summary>
@@ -47,7 +48,7 @@ namespace Developer_Helper.Model
         public string Port
         {
             get => _port;
-            set => SetProperty(ref _port, value);
+            set => SetProperty(ref _port, value, nameof(Port));
         }
 
         /// <summary>
@@ -57,7 +58,7 @@ namespace Developer_Helper.Model
         public string UserName
         {
             get => _username;
-            set => SetProperty(ref _username, value);
+            set => SetProperty(ref _username, value, nameof(UserName));
         }
 
         /// <summary>
@@ -67,7 +68,7 @@ namespace Developer_Helper.Model
         public string PassWord
         {
             get => _password;
-            set => SetProperty(ref _password, value);
+            set => SetProperty(ref _password, value, nameof(PassWord));
         }
 
         /// <summary>
@@ -77,7 +78,7 @@ namespace Developer_Helper.Model
         public string DataBase
         {
             get => _dataBase;
-            set => SetProperty(ref _dataBase, value);
+            set => SetProperty(ref _dataBase, value, nameof(DataBase));
         }
 
         /// <summary>
@@ -87,7 +88,7 @@ namespace Developer_Helper.Model
         public string ConnectionName
         {
             get => _connectionName;
-            set => SetProperty(ref _connectionName, value);
+            set => SetProperty(ref _connectionName, value, nameof(ConnectionName));
         }
 
         /// <summary>
@@ -97,14 +98,11 @@ namespace Developer_Helper.Model
         public string Description
         {
             get => _description;
-            set => SetProperty(ref _description, value);
+            set => SetProperty(ref _description, value, nameof(Description));
         }
-
-
         #endregion 객체Property정의 End
 
-        #region 객체메소드
-
+        #region 객체메소드        
         #endregion
     }
 }

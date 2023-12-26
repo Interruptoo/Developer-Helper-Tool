@@ -20,56 +20,61 @@ namespace Developer_Helper.ViewModel
         #endregion Const        
 
         #region Properties
-        private string _currentHost;
-        public string CurrentHost
+        //private string _currentHost;
+        //public string CurrentHost
+        //{
+        //    get => _currentHost;
+        //    set => SetProperty(ref _currentHost, value, nameof(CurrentHost));
+        //}
+
+        //private string _currentDataBase;
+        //public string CurrentDataBase
+        //{
+        //    get => _currentDataBase;
+        //    set => SetProperty(ref _currentDataBase, value, nameof(CurrentDataBase));
+        //}
+
+        //private string _currentPort;
+        //public string CurrentPort
+        //{
+        //    get => _currentPort;
+        //    set => SetProperty(ref _currentPort, value, nameof(CurrentPort));
+        //}
+
+        //private string _currentUserName;
+        //public string CurrentUserName
+        //{
+        //    get => _currentUserName;
+        //    set => SetProperty(ref _currentUserName, value, nameof(CurrentUserName));
+        //}
+
+        //private string _currentPassWord;
+        //public string CurrentPassWord
+        //{
+        //    get => _currentPassWord;
+        //    set => SetProperty(ref _currentPassWord, value, nameof(CurrentPassWord));
+        //}
+
+        //private string _currentConnectionName;
+        //public string CurrentConnectionName
+        //{
+        //    get => _currentConnectionName;
+        //    set => SetProperty(ref _currentConnectionName, value, nameof(CurrentConnectionName));
+        //}
+
+        //private string _currentDescription;
+        //public string CurrentDescriptionrrentPort
+        //{
+        //    get => _currentDescription;
+        //    set => SetProperty(ref _currentDescription, value, nameof(CurrentDescriptionrrentPort));
+        //}
+
+        private ConnectionInformationModel _currentConenction;
+        public ConnectionInformationModel CurrentConenction
         {
-            get => _currentHost;
-            set => SetProperty(ref _currentHost, value, nameof(CurrentHost));
+            get => _currentConenction;
+            set => SetProperty(ref  _currentConenction, value, nameof(CurrentConenction));
         }
-
-        private string _currentDataBase;
-        public string CurrentDataBase
-        {
-            get => _currentDataBase;
-            set => SetProperty(ref _currentDataBase, value, nameof(CurrentDataBase));
-        }
-
-        private string _currentPort;
-        public string CurrentPort
-        {
-            get => _currentPort;
-            set => SetProperty(ref _currentPort, value, nameof(CurrentPort));
-        }
-
-        private string _currentUserName;
-        public string CurrentUserName
-        {
-            get => _currentUserName;
-            set => SetProperty(ref _currentUserName, value, nameof(CurrentUserName));
-        }
-
-        private string _currentPassWord;
-        public string CurrentPassWord
-        {
-            get => _currentPassWord;
-            set => SetProperty(ref _currentPassWord, value, nameof(CurrentPassWord));
-        }
-
-        private string _currentConnectionName;
-        public string CurrentConnectionName
-        {
-            get => _currentConnectionName;
-            set => SetProperty(ref _currentConnectionName, value, nameof(CurrentConnectionName));
-        }
-
-        private string _currentDescription;
-        public string CurrentDescriptionrrentPort
-        {
-            get => _currentDescription;
-            set => SetProperty(ref _currentDescription, value, nameof(CurrentDescriptionrrentPort));
-        }
-
-
 
 
         #endregion Properties End
@@ -82,12 +87,12 @@ namespace Developer_Helper.ViewModel
         /// </summary>
         public SettingDetail_ViewModel()
         {
-            init();
+            CurrentConenction = Mediator.Instance.SharedModel;
         }
 
         public SettingDetail_ViewModel(Mediator mediator)
-        {
-            _mediator = mediator;
+        {                        
+            _mediator = mediator;            
 
             _mediator.Subscribe("SettingDetail_Clear", () => clearProperty());
         }
@@ -121,10 +126,10 @@ namespace Developer_Helper.ViewModel
 
         #region Method
         private void init()
-        {
-            CurrentHost = "123123123";
-            CurrentDataBase = "DEV";
-            CurrentPort = "1521";
+        {            
+            CurrentConenction.HostAddress = "www.naver.com";
+            CurrentConenction.DataBase = "DEV";
+            CurrentConenction.Port = "1521";
         }
 
 
@@ -135,10 +140,8 @@ namespace Developer_Helper.ViewModel
         /// </summary>
         private void clearProperty()
         {
-            CurrentHost = string.Empty;
-            CurrentDataBase = string.Empty;
-            CurrentPort = string.Empty;
-            
+            CurrentConenction = Mediator.Instance.SharedModel;
+
         }        
         
         
