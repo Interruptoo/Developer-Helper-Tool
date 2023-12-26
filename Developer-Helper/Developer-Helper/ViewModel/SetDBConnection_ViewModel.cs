@@ -72,13 +72,14 @@ namespace Developer_Helper.ViewModel
         private void Init()
         {
             _mediator = new Mediator();
-            SettingDetail_ViewModel test = new SettingDetail_ViewModel(_mediator);
+            new SettingDetail_ViewModel(_mediator);
         }
 
 
         private void ClearViewProperty()
         {
             _mediator.Notify("SettingDetail_Clear");
+
         }
 
         #endregion Method End

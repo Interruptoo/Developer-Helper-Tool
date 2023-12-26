@@ -40,10 +40,13 @@
                     </Grid.ColumnDefinitions>
                     <Label Grid.Row="0" Grid.Column="0" Content="Host : " />
                     <Label Grid.Row="1" Grid.Column="0" Content="Database : "/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Height="18" Tag="localhost" Style="{StaticResource MyWaterMarkStyle}" FontSize="9" Text="{Binding ConnectionInformation.HostAddress, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" />
-                    <TextBox Grid.Row="1" Grid.Column="1" Height="18" Tag="ORCL" Style="{StaticResource MyWaterMarkStyle}" FontSize="9" Text="{Binding ConnectionInformation.DataBase, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" />
+                    <TextBox Grid.Row="0" Grid.Column="1" Height="18" Tag="localhost" Style="{StaticResource MyWaterMarkStyle}" FontSize="9" Text="{Binding CurrentHost, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Height="18" Tag="ORCL" Style="{StaticResource MyWaterMarkStyle}" FontSize="9" Text="{Binding CurrentDataBase, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" />
+                    <Button Content="clear" Grid.Row="1" Grid.Column="2" Style="{StaticResource CommonButtonStyle}" Command="{Binding ClearCommand}"/>
+                    <Button Content="init" Grid.Row="1" Grid.Column="3" Style="{StaticResource CommonButtonStyle}" Command="{Binding InitCommand}"/>
+
                     <Label Grid.Row="0" Grid.Column="2" Content="port : "/>
-                    <TextBox Grid.Row="0" Grid.Column="3" Height="18" Text="{Binding ConnectionInformation.Port, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+                    <TextBox Grid.Row="0" Grid.Column="3" Height="18" Text="{Binding CurrentPort, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
                 </Grid>
             </GroupItem>
         </GroupBox>
@@ -62,8 +65,8 @@
                     </Grid.ColumnDefinitions>
                     <Label Grid.Row="0" Grid.Column="0" Content="Username : "/>
                     <Label Grid.Row="1" Grid.Column="0" Content="Password : "/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Height="18" Tag="system" Style="{StaticResource MyWaterMarkStyle}" FontSize="8" Text="{Binding ConnectionInformation.UserName, Mode=TwoWay}"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Height="18" Text="{Binding ConnectionInformation.PassWord, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Height="18" Tag="system" Style="{StaticResource MyWaterMarkStyle}" FontSize="8" Text="{Binding CurrentUserName, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Height="18" Text="{Binding CurrentPassWord, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                 </Grid>
             </GroupItem>
         </GroupBox>
@@ -80,9 +83,9 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.Row="0" Grid.Column="0" Content="Connection name : "/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Height="18" Text="{Binding ConnectionInformation.ConnectionName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Height="18" Text="{Binding CurrentConnectionName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                     <Label Grid.Row="1" Grid.Column="0" Content="Description : "/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Height="18" Text="{Binding ConnectionInformation.Description ,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Height="18" Text="{Binding CurrentDescriptionrrentPort ,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                     <Label Grid.Row="2" Grid.Column="0" Content="Connection Folder : "/>
                 </Grid>
             </GroupItem>

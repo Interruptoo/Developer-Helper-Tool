@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Developer_Helper.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,10 +20,12 @@ namespace Developer_Helper.View
     /// SettingDetail_View.xaml에 대한 상호 작용 논리
     /// </summary>
     public partial class SettingDetail_View : UserControl
-    {
+    {        
         public SettingDetail_View()
         {
             InitializeComponent();
+
         }
+        
     }
 }
