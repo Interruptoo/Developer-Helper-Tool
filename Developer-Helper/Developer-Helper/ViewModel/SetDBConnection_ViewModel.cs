@@ -17,7 +17,7 @@ namespace Developer_Helper.ViewModel
     class SetDBConnection_ViewModel : ViewModelBase
     {
         #region Const
-
+        private Mediator _mediator;
         #endregion Const
 
         #region View Properties
@@ -41,7 +41,13 @@ namespace Developer_Helper.ViewModel
         {
             if (LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
 
-            this.Init();
+            this.Init();            
+        }
+
+        public SetDBConnection_ViewModel(Mediator mediator)
+        {
+            _mediator = mediator;
+
         }
         #endregion Constructors End
 
@@ -65,13 +71,14 @@ namespace Developer_Helper.ViewModel
         /// </summary>
         private void Init()
         {
-            
+            _mediator = new Mediator();
+            SettingDetail_ViewModel test = new SettingDetail_ViewModel(_mediator);
         }
 
 
         private void ClearViewProperty()
         {
-            SettingDetail = new SettingDetail_ViewModel();
+            _mediator.Notify("SettingDetail_Clear");
         }
 
         #endregion Method End

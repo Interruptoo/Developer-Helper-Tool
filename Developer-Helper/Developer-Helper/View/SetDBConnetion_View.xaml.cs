@@ -32,7 +32,7 @@ namespace Developer_Helper.View
         /// </summary>
         private void Close_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            callClose();
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace Developer_Helper.View
         {
 
 
-            Close();
+            callClose();
         }
 
         #endregion Event End
@@ -55,7 +55,7 @@ namespace Developer_Helper.View
         /// date   : 2023-12-21
         /// description : Window Close
         /// </summary>
-        private void Close()
+        private void callClose()
         {
             Close();
         }

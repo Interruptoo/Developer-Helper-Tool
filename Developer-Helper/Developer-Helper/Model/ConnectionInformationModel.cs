@@ -35,9 +35,7 @@ namespace Developer_Helper.Model
         /// </summary>
         [DataMember]
         public string HostAddress
-        {
-            //get { return _hostAddress; }
-            //set { if (_hostAddress != value) _hostAddress = value; OnPropertyChanged(nameof(HostAddress)); }
+        {            
             get => _hostAddress;
             set => SetProperty(ref _hostAddress, value);
         }
@@ -48,8 +46,6 @@ namespace Developer_Helper.Model
         [DataMember]
         public string Port
         {
-            //get { return _port; }
-            //set { if (_port != value) _port = value; OnPropertyChanged(nameof(Port)); }
             get => _port;
             set => SetProperty(ref _port, value);
         }
@@ -60,8 +56,6 @@ namespace Developer_Helper.Model
         [DataMember]
         public string UserName
         {
-            //get { return _username; }
-            //set { if (_username != value) _username = value; OnPropertyChanged(nameof(UserName)); }
             get => _username;
             set => SetProperty(ref _username, value);
         }
@@ -72,8 +66,6 @@ namespace Developer_Helper.Model
         [DataMember]
         public string PassWord
         {
-            //get { return _password; }
-            //set { if (_password != value) _password = value; OnPropertyChanged(nameof(PassWord)); }
             get => _password;
             set => SetProperty(ref _password, value);
         }
@@ -84,8 +76,6 @@ namespace Developer_Helper.Model
         [DataMember]
         public string DataBase
         {
-            //get { return _dataBase; }
-            //set { if (_dataBase != value) _dataBase = value; OnPropertyChanged(nameof(DataBase)); }
             get => _dataBase;
             set => SetProperty(ref _dataBase, value);
         }
@@ -96,8 +86,6 @@ namespace Developer_Helper.Model
         [DataMember]
         public string ConnectionName
         {
-            //get { return _connectionName; }
-            //set { if (_connectionName != value) _connectionName = value; OnPropertyChanged(nameof(ConnectionName)); }
             get => _connectionName;
             set => SetProperty(ref _connectionName, value);
         }
@@ -108,8 +96,6 @@ namespace Developer_Helper.Model
         [DataMember]
         public string Description
         {
-            //get { return _description; }
-            //set { if (_description != value) _description = value; OnPropertyChanged(nameof(Description)); }
             get => _description;
             set => SetProperty(ref _description, value);
         }
