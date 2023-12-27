@@ -36,20 +36,40 @@ namespace Developer_Helper.ViewModel
             _mediator = mediator;
 
             ConnectionInformation = Mediator.Instance.SharedModel;
-
+            
             new SettingDetail_ViewModel(_mediator);
 
         }
         #endregion Constructors End
 
         #region Command
-        private ICommand _clearData;
-        public ICommand ClearData
+        /// <summary>
+        /// author : yuminhio
+        /// date   : 2023-12-22
+        /// description : Clear버튼 클릭
+        /// </summary>
+        private ICommand _clearDataCommand;
+        public ICommand ClearDataCommand
         {
             get
             {
-                if (_clearData == null) _clearData = new RelayCommand(prop => ClearViewProperty());
-                return _clearData;
+                if (_clearDataCommand == null) _clearDataCommand = new RelayCommand(p => ClearViewProperty());
+                return _clearDataCommand;
+            }
+        }
+
+        /// <summary>
+        /// author : yuminhio
+        /// date   : 2023-12-27
+        /// description : Test Connection Command
+        /// </summary>
+        private ICommand _connectionTestCommand;
+        public ICommand ConnectionTestCommand
+        {
+            get
+            {
+                if (_connectionTestCommand == null) _connectionTestCommand = new RelayCommand(p => ExcuteConnectionTest());
+                return _connectionTestCommand;
             }
         }
         #endregion Command End
@@ -74,7 +94,17 @@ namespace Developer_Helper.ViewModel
         {            
             _mediator.Notify("SettingDetail_Clear");
 
-        }        
+        }
+
+        /// <summary>
+        /// author : yuminhio
+        /// date   : 2023-12-27
+        /// description : DB연결 테스트
+        /// </summary>
+        private void ExcuteConnectionTest()
+        {
+
+        }
 
         #endregion Method End
     }

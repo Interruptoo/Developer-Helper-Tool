@@ -6,7 +6,7 @@
         xmlns:View="clr-namespace:Developer_Helper.View"
         xmlns:ViewModel="clr-namespace:Developer_Helper.ViewModel"
         mc:Ignorable="d"
-        Title="Connect to a database" Height="500" Width="1000" Background="#FFF0F0F0" ResizeMode="NoResize">
+        Title="Connect to a database" Height="500" Width="800" Background="#FFF0F0F0" ResizeMode="NoResize">
     
     <Window.Resources>
         <ResourceDictionary>
@@ -20,7 +20,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
         <Border BorderThickness="0,0,0,1" BorderBrush="#FFA0A0A0" Background="White">
             <DockPanel Grid.Row="0"  LastChildFill="False">
@@ -48,13 +48,14 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="5"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Separator Grid.Row="0" Width="Auto" Height="5" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
-            <DockPanel Grid.Row="1" LastChildFill="False">
-                <Button Style="{StaticResource CommonButtonStyle}" Content="Test Connection..." Margin="10,0,0,0" Width="120"/>
+            <DockPanel Grid.Row="2" LastChildFill="False">
+                <Button Style="{StaticResource CommonButtonStyle}" Content="Test Connection..." Margin="10,0,0,0" Width="120" Command="{Binding }"/>
                 <Button Style="{StaticResource CommonButtonStyle}" Content="Cancel" DockPanel.Dock="Right" Margin="0,0,10,0" Width="90" Click="Close_Click"/>
                 <Button Style="{StaticResource CommonButtonStyle}" Content="Finish" DockPanel.Dock="Right" Margin="0,0,5,0" Width="90" Click="Save_Click"/>
-                <Button Style="{StaticResource CommonButtonStyle}" Content="Clear" DockPanel.Dock="Right" Margin="0,0,5,0" Width="90" Command="{Binding ClearData}"/>
+                <Button Style="{StaticResource CommonButtonStyle}" Content="Clear" DockPanel.Dock="Right" Margin="0,0,5,0" Width="90" Command="{Binding ClearDataCommand}"/>
             </DockPanel>
         </Grid>
     </Grid>

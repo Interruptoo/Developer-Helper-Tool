@@ -45,7 +45,7 @@ namespace Developer_Helper.ViewModel
         {                        
             _mediator = mediator;            
 
-            _mediator.Subscribe("SettingDetail_Clear", () => clearProperty());
+            _mediator.Subscribe("SettingDetail_Clear", () => clearProperty());            
         }
 
         #endregion Constructors End
@@ -82,7 +82,7 @@ namespace Developer_Helper.ViewModel
             CurrentConenction.ConnectionName = string.Empty;
             CurrentConenction.Description = string.Empty;
 
-        }        
+        }
         #endregion Method End
     }
 }
