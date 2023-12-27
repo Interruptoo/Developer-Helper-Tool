@@ -73,6 +73,7 @@ namespace Developer_Helper.ViewModel
         /// </summary>
         private void clearProperty()
         {
+            init();
             CurrentConenction.HostAddress = string.Empty;
             CurrentConenction.DataBase = string.Empty;
             CurrentConenction.Port = "1521";
