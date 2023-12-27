@@ -19,56 +19,7 @@ namespace Developer_Helper.ViewModel
         private readonly Mediator _mediator;
         #endregion Const        
 
-        #region Properties
-        //private string _currentHost;
-        //public string CurrentHost
-        //{
-        //    get => _currentHost;
-        //    set => SetProperty(ref _currentHost, value, nameof(CurrentHost));
-        //}
-
-        //private string _currentDataBase;
-        //public string CurrentDataBase
-        //{
-        //    get => _currentDataBase;
-        //    set => SetProperty(ref _currentDataBase, value, nameof(CurrentDataBase));
-        //}
-
-        //private string _currentPort;
-        //public string CurrentPort
-        //{
-        //    get => _currentPort;
-        //    set => SetProperty(ref _currentPort, value, nameof(CurrentPort));
-        //}
-
-        //private string _currentUserName;
-        //public string CurrentUserName
-        //{
-        //    get => _currentUserName;
-        //    set => SetProperty(ref _currentUserName, value, nameof(CurrentUserName));
-        //}
-
-        //private string _currentPassWord;
-        //public string CurrentPassWord
-        //{
-        //    get => _currentPassWord;
-        //    set => SetProperty(ref _currentPassWord, value, nameof(CurrentPassWord));
-        //}
-
-        //private string _currentConnectionName;
-        //public string CurrentConnectionName
-        //{
-        //    get => _currentConnectionName;
-        //    set => SetProperty(ref _currentConnectionName, value, nameof(CurrentConnectionName));
-        //}
-
-        //private string _currentDescription;
-        //public string CurrentDescriptionrrentPort
-        //{
-        //    get => _currentDescription;
-        //    set => SetProperty(ref _currentDescription, value, nameof(CurrentDescriptionrrentPort));
-        //}
-
+        #region Properties        
         private ConnectionInformationModel _currentConenction;
         public ConnectionInformationModel CurrentConenction
         {
@@ -87,7 +38,7 @@ namespace Developer_Helper.ViewModel
         /// </summary>
         public SettingDetail_ViewModel()
         {
-            CurrentConenction = Mediator.Instance.SharedModel;
+            init();
         }
 
         public SettingDetail_ViewModel(Mediator mediator)
@@ -100,38 +51,20 @@ namespace Developer_Helper.ViewModel
         #endregion Constructors End
 
         #region Command
-        private ICommand _clearCommand;
-        public ICommand ClearCommand
-        {
-            get
-            {
-                if (_clearCommand == null) _clearCommand = new RelayCommand(p => clearProperty());
-                
-                return _clearCommand;
-            }
-        }
-
-        private ICommand _initCommand;
-        public ICommand InitCommand
-        {
-            get
-            {
-                if (_initCommand == null) _initCommand = new RelayCommand(p => init());
-
-                return _initCommand;
-            }
-        }
+        
 
         #endregion Command End
 
         #region Method
+        /// <summary>
+        /// author : yuminhio
+        /// date   : 2023-12-22
+        /// description : 
+        /// </summary>
         private void init()
-        {            
-            CurrentConenction.HostAddress = "www.naver.com";
-            CurrentConenction.DataBase = "DEV";
-            CurrentConenction.Port = "1521";
+        {
+            CurrentConenction = Mediator.Instance.SharedModel;
         }
-
 
         /// <summary>
         /// author : yuminhio
@@ -140,11 +73,15 @@ namespace Developer_Helper.ViewModel
         /// </summary>
         private void clearProperty()
         {
-            CurrentConenction = Mediator.Instance.SharedModel;
+            CurrentConenction.HostAddress = string.Empty;
+            CurrentConenction.DataBase = string.Empty;
+            CurrentConenction.Port = "1521";
+            CurrentConenction.UserName = string.Empty;
+            CurrentConenction.PassWord = string.Empty;
+            CurrentConenction.ConnectionName = string.Empty;
+            CurrentConenction.Description = string.Empty;
 
         }        
-        
-        
         #endregion Method End
     }
 }

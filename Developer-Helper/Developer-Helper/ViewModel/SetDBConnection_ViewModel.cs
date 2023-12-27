@@ -65,15 +65,16 @@ namespace Developer_Helper.ViewModel
             
         }
 
+        /// <summary>
+        /// author : yuminhio
+        /// date   : 2023-12-22
+        /// description : 초기화
+        /// </summary>
         private void ClearViewProperty()
-        {
-            Mediator.Instance.SharedModel.HostAddress = string.Empty;
-            Mediator.Instance.SharedModel.DataBase = string.Empty;
-            Mediator.Instance.SharedModel.Port = string.Empty;
-
+        {            
             _mediator.Notify("SettingDetail_Clear");
 
-        }
+        }        
 
         #endregion Method End
     }
