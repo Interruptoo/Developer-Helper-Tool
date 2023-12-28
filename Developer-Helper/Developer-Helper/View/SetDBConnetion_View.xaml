@@ -51,6 +51,15 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Separator Grid.Row="0" Width="Auto" Height="5" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+            <StackPanel Grid.Row="1">
+                <TextBlock Text="DataBase Connection Test" Margin="10,0,0,0">
+                    
+                </TextBlock>
+                <DockPanel>
+                    <Button DockPanel.Dock="Right" Background="OrangeRed" Width="15" Height="15" Margin="0,3,10,0"/>
+                    <ProgressBar Height="15" Margin="10,3,10,0" Value="20"/>
+                </DockPanel>
+            </StackPanel>
             <DockPanel Grid.Row="2" LastChildFill="False">
                 <Button Style="{StaticResource CommonButtonStyle}" Content="Test Connection..." Margin="10,0,0,0" Width="120" Command="{Binding }"/>
                 <Button Style="{StaticResource CommonButtonStyle}" Content="Cancel" DockPanel.Dock="Right" Margin="0,0,10,0" Width="90" Click="Close_Click"/>
