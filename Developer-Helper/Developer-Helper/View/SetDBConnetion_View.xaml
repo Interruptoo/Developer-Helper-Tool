@@ -56,7 +56,13 @@
                     
                 </TextBlock>
                 <DockPanel>
-                    <Button DockPanel.Dock="Right" Background="OrangeRed" Width="15" Height="15" Margin="0,3,10,0"/>
+                    <Button DockPanel.Dock="Right" Margin="0,3,10,0" VerticalAlignment="Center" Background="Red" Width="15" Height="15">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="3"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
                     <ProgressBar Height="15" Margin="10,3,10,0" Value="20"/>
                 </DockPanel>
             </StackPanel>
