@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using WpfMvvm.Commands;
@@ -103,7 +104,13 @@ namespace Developer_Helper.ViewModel
         /// </summary>
         private void ExcuteConnectionTest()
         {
+            OracleDataBaseConnection connectionTest = new OracleDataBaseConnection(ConnectionInformation);
 
+            if (!connectionTest.Connect_Test())
+            {
+                MessageBox.Show("DataBase Connection Faild", "DataBase Connection");
+            }
+            
         }
 
         #endregion Method End
