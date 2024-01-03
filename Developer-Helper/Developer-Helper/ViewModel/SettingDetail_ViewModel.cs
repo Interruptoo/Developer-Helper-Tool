@@ -74,11 +74,18 @@ namespace Developer_Helper.ViewModel
         private void clearProperty()
         {
             init();
-            CurrentConenction.HostAddress = string.Empty;
-            CurrentConenction.DataBase = string.Empty;
-            CurrentConenction.Port = "1521";
-            CurrentConenction.UserName = string.Empty;
-            CurrentConenction.PassWord = string.Empty;
+            //CurrentConenction.HostAddress = string.Empty;
+            //CurrentConenction.DataBase = string.Empty;
+            //CurrentConenction.Port = "1521";
+            //CurrentConenction.UserName = string.Empty;
+            //CurrentConenction.PassWord = string.Empty;
+            //CurrentConenction.ConnectionName = string.Empty;
+            //CurrentConenction.Description = string.Empty;
+            CurrentConenction.HostAddress = "172.17.12.73";
+            CurrentConenction.DataBase = "MEBDEV";
+            CurrentConenction.Port = "1965";
+            CurrentConenction.UserName = "xsup";
+            CurrentConenction.PassWord = "xsup21";
             CurrentConenction.ConnectionName = string.Empty;
             CurrentConenction.Description = string.Empty;
 

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
+using System.Reflection.PortableExecutable;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,8 +17,10 @@ namespace Developer_Helper.Class
 {
     class OracleDataBaseConnection
     {                
-        private OracleCommand cmd;
+        static string serverVersion;
+        static string clientDriver;
 
+        private OracleCommand cmd;
         private ConnectionInformationModel inputDBInfo;
 
         #region Constructor
@@ -29,7 +33,7 @@ namespace Developer_Helper.Class
 
         public bool Connect_Test()
         {
-            bool result = false;            
+            bool result = false;
             //string connectionString = $"Data Source={inputDBInfo.DataBase};User Id={inputDBInfo.UserName};Password={inputDBInfo.PassWord}";
             string connectionString = $"Data Source=(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = {inputDBInfo.HostAddress})(PORT = {inputDBInfo.Port})))(CONNECT_DATA =(SID = {inputDBInfo.DataBase})));User Id={inputDBInfo.UserName};Password={inputDBInfo.PassWord}";
 
@@ -37,9 +41,36 @@ namespace Developer_Helper.Class
             {
                 try
                 {
+                    string cmdText = @"select distinct                                            
+                                            i.client_driver
+                                            from v$session s,
+                                            v$session_connect_info i
+                                            where s.sid = i.sid                                            
+                                            and s.program = 'Developer-Helper.exe'";
+
                     conn.Open();
+
                     //Console.WriteLine(conn.State);
                     Debug.WriteLine($"Oracle Status : {conn.State}");
+
+                    cmd = new OracleCommand(cmdText, conn);
+                    //using(OracleDataReader reader = cmd.ExecuteReader())
+                    //{
+                    //    while(reader.Read())
+                    //    {
+                    //        int id = reader.GetInt32(0);
+                    //        string name = reader.GetString(1);
+                    //    }
+                    //}
+                    using(OracleDataReader reader = cmd.ExecuteReader())
+                    {
+                        if(reader.Read())
+                        {
+                            serverVersion = conn.ServerVersion.ToString();
+                            clientDriver = reader.GetString(0);                            
+                        }
+                    }                                        
+
                     result = true;
                 }
                 catch(Exception ex)
@@ -48,7 +79,7 @@ namespace Developer_Helper.Class
                     Debug.WriteLine(ex.Message);
                 }
                 finally
-                {
+                {                    
                     conn.Close();
                 }                
             }
