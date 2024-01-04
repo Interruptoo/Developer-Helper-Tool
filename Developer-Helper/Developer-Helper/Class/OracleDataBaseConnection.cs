@@ -17,11 +17,12 @@ namespace Developer_Helper.Class
 {
     class OracleDataBaseConnection
     {                
-        static string serverVersion;
-        static string clientDriver;
+        public string serverVersion;
+        public string clientDriver;
 
+        private OracleConnection conn;
         private OracleCommand cmd;
-        private ConnectionInformationModel inputDBInfo;
+        private ConnectionInformationModel inputDBInfo;        
 
         #region Constructor
         public OracleDataBaseConnection(ConnectionInformationModel obj)
@@ -30,59 +31,98 @@ namespace Developer_Helper.Class
         }
         #endregion Constructor end
 
+        /// <summary>
+        /// author : yuminhio
+        /// date   : 2024-01-04
+        /// description : DB Connection 정보를 Setting한다.
+        /// </summary>
+        private string SetConnectInformation()
+        {            
+            //string connectionString = $"Data Source={inputDBInfo.DataBase};User Id={inputDBInfo.UserName};Password={inputDBInfo.PassWord}";            
+            return $"Data Source=(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = {inputDBInfo.HostAddress})(PORT = {inputDBInfo.Port})))(CONNECT_DATA =(SID = {inputDBInfo.DataBase})));User Id={inputDBInfo.UserName};Password={inputDBInfo.PassWord}";
+        }
 
+        /// <summary>
+        /// author : yuminhio
+        /// date   : 2024-01-04
+        /// description : DB Connection Open
+        /// </summary>
+        private void Open()
+        {
+            conn = new OracleConnection(SetConnectInformation());
+
+            conn.Open();
+            
+            Debug.WriteLine($"Oracle Status : {conn.State}");            
+        }
+
+        /// <summary>
+        /// author : yuminhio
+        /// date   : 2024-01-04
+        /// description : DB Connection Close
+        /// </summary>
+        private void Close()
+        {
+            conn.Close();
+        }
+
+        private void SetCommand()
+        {
+            //연결한 DB의 ClientDriver를 조회해서 가져온다.
+            string cmdText = @"select distinct                                            
+                                    i.client_driver
+                                    from v$session s,
+                                    v$session_connect_info i
+                                    where s.sid = i.sid                                            
+                                    and s.program = 'Developer-Helper.exe'";
+
+            cmd = new OracleCommand(cmdText, conn);
+        }
+
+        /// <summary>
+        /// author : yuminhio
+        /// date   : 2024-01-04
+        /// description : Command Excute, Return Data
+        /// </summary>
+        private void ExcuteCommand()
+        {
+            using (OracleDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    serverVersion = conn.ServerVersion.ToString();
+                    clientDriver = reader.GetString(0);
+                }
+            }
+        }
+
+        /// <summary>
+        /// author : yuminhio
+        /// date   : 2024-01-04
+        /// description : DB Connection Test
+        /// </summary>
         public bool Connect_Test()
         {
             bool result = false;
-            //string connectionString = $"Data Source={inputDBInfo.DataBase};User Id={inputDBInfo.UserName};Password={inputDBInfo.PassWord}";
-            string connectionString = $"Data Source=(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = {inputDBInfo.HostAddress})(PORT = {inputDBInfo.Port})))(CONNECT_DATA =(SID = {inputDBInfo.DataBase})));User Id={inputDBInfo.UserName};Password={inputDBInfo.PassWord}";
 
-            using (OracleConnection conn = new OracleConnection(connectionString))
+            try
             {
-                try
-                {
-                    string cmdText = @"select distinct                                            
-                                            i.client_driver
-                                            from v$session s,
-                                            v$session_connect_info i
-                                            where s.sid = i.sid                                            
-                                            and s.program = 'Developer-Helper.exe'";
+                Open();
 
-                    conn.Open();
+                SetCommand();
 
-                    //Console.WriteLine(conn.State);
-                    Debug.WriteLine($"Oracle Status : {conn.State}");
+                ExcuteCommand();
 
-                    cmd = new OracleCommand(cmdText, conn);
-                    //using(OracleDataReader reader = cmd.ExecuteReader())
-                    //{
-                    //    while(reader.Read())
-                    //    {
-                    //        int id = reader.GetInt32(0);
-                    //        string name = reader.GetString(1);
-                    //    }
-                    //}
-                    using(OracleDataReader reader = cmd.ExecuteReader())
-                    {
-                        if(reader.Read())
-                        {
-                            serverVersion = conn.ServerVersion.ToString();
-                            clientDriver = reader.GetString(0);                            
-                        }
-                    }                                        
-
-                    result = true;
-                }
-                catch(Exception ex)
-                {
-                    //Console.WriteLine (ex.Message);
-                    Debug.WriteLine(ex.Message);
-                }
-                finally
-                {                    
-                    conn.Close();
-                }                
+                result = true;
             }
+            catch(Exception ex)
+            {                
+                Debug.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Close();
+            }            
 
             return result;
         }

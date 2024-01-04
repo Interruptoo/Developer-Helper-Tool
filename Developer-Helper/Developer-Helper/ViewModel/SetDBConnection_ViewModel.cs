@@ -108,7 +108,11 @@ namespace Developer_Helper.ViewModel
 
             if (!connectionTest.Connect_Test())
             {
-                MessageBox.Show("DataBase Connection Faild", "DataBase Connection");
+                MessageBox.Show("DataBase Connection Faild", "DataBase Connection", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                MessageBox.Show($" ServerVersion : {connectionTest.serverVersion} \n ClientDriver : {connectionTest.clientDriver}", "DataBase Connection", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             
         }
