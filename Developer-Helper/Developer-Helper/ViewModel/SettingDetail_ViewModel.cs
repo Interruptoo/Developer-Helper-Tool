@@ -63,7 +63,8 @@ namespace Developer_Helper.ViewModel
         /// </summary>
         private void init()
         {
-            CurrentConenction = Mediator.Instance.SharedModel;
+            //CurrentConenction = Mediator.Instance.SharedModel;
+            CurrentConenction = OracleDataBaseConnection.Instance.SharedModel;
         }
 
         /// <summary>

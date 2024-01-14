@@ -36,7 +36,8 @@ namespace Developer_Helper.ViewModel
         {
             _mediator = mediator;
 
-            ConnectionInformation = Mediator.Instance.SharedModel;
+            //ConnectionInformation = Mediator.Instance.SharedModel;
+            ConnectionInformation = OracleDataBaseConnection.Instance.SharedModel;
             
             new SettingDetail_ViewModel(_mediator);
 

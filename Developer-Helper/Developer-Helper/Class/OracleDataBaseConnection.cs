@@ -22,9 +22,42 @@ namespace Developer_Helper.Class
 
         private OracleConnection conn;
         private OracleCommand cmd;
-        private ConnectionInformationModel inputDBInfo;        
+        private ConnectionInformationModel inputDBInfo;
+
+        #region Instance
+        private static OracleDataBaseConnection _instance;
+        public static OracleDataBaseConnection Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new OracleDataBaseConnection();
+                }
+                return _instance;
+            }
+        }
+
+        private ConnectionInformationModel _sharedModel;
+        public ConnectionInformationModel SharedModel
+        {
+            get
+            {
+                if (_sharedModel == null)
+                {
+                    _sharedModel = new ConnectionInformationModel();
+                }
+                return _sharedModel;
+            }
+        }
+        #endregion Instance End
 
         #region Constructor
+        public OracleDataBaseConnection()
+        {
+            
+        }
+
         public OracleDataBaseConnection(ConnectionInformationModel obj)
         {
             this.inputDBInfo = obj;

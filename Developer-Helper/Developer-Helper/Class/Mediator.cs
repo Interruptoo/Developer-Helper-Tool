@@ -9,36 +9,7 @@ using System.Threading.Tasks;
 namespace Developer_Helper.Class
 {
     class Mediator
-    {
-        #region Instance        
-        private static Mediator _instance;
-        public static Mediator Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new Mediator();
-                }
-                return _instance;
-            }
-        }
-
-        private ConnectionInformationModel _sharedModel;
-        public ConnectionInformationModel SharedModel
-        {
-            get
-            {
-                if (_sharedModel == null)
-                {
-                    _sharedModel = new ConnectionInformationModel();
-                }
-                return _sharedModel;
-            }
-        }
-        
-        #endregion
-
+    {        
         #region add parameter
         private readonly Dictionary<string, Action<object>> _colleagues = new Dictionary<string, Action<object>>();
 
