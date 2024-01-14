@@ -4,6 +4,7 @@ using Developer_Helper.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Channels;
@@ -35,8 +36,7 @@ namespace Developer_Helper.ViewModel
         public SetDBConnection_ViewModel(Mediator mediator)
         {
             _mediator = mediator;
-
-            //ConnectionInformation = Mediator.Instance.SharedModel;
+            
             ConnectionInformation = OracleDataBaseConnection.Instance.SharedModel;
             
             new SettingDetail_ViewModel(_mediator);
@@ -72,6 +72,21 @@ namespace Developer_Helper.ViewModel
             {
                 if (_connectionTestCommand == null) _connectionTestCommand = new RelayCommand(p => ExcuteConnectionTest());
                 return _connectionTestCommand;
+            }
+        }
+
+        /// <summary>
+        /// author : yuminhio
+        /// date   : 2024-01-14
+        /// description : Save Oracle DB Information
+        /// </summary>
+        private ICommand _saveConnectionInformation;
+        public ICommand SaveConnectionInformation
+        {
+            get
+            {
+                if (_saveConnectionInformation == null) _saveConnectionInformation = new RelayCommand(p => SetOracleInformationXmlWrite());
+                return _saveConnectionInformation;
             }
         }
         #endregion Command End
@@ -116,6 +131,16 @@ namespace Developer_Helper.ViewModel
                 MessageBox.Show($" ServerVersion : {connectionTest.serverVersion} \n ClientDriver : {connectionTest.clientDriver}", "DataBase Connection", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             
+        }
+
+        private void SetOracleInformationXmlWrite()
+        {
+            var test =  System.Environment.CurrentDirectory;
+            var test2 = AppDomain.CurrentDomain.BaseDirectory;
+            using(var reader = new StreamReader(@""))
+            {
+
+            }
         }
 
         #endregion Method End

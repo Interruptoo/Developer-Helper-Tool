@@ -37,19 +37,7 @@ namespace Developer_Helper.View
         private void Close_Click(object sender, RoutedEventArgs e)
         {
             callClose();
-        }
-
-        /// <summary>
-        /// author : yuminhio
-        /// date   : 2023-12-21
-        /// description : 입력한 Connection 정보를 저장하고 닫는다.
-        /// </summary>
-        private void Save_Click(object sender, RoutedEventArgs e)
-        {
-
-
-            callClose();
-        }
+        }        
 
         #endregion Event End
 
