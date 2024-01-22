@@ -4,6 +4,7 @@ using Developer_Helper.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using System.Xml;
+using System.Xml.Serialization;
 using WpfMvvm.Commands;
 
 namespace Developer_Helper.ViewModel
@@ -85,7 +88,7 @@ namespace Developer_Helper.ViewModel
         {
             get
             {
-                if (_saveConnectionInformation == null) _saveConnectionInformation = new RelayCommand(p => SetOracleInformationXmlWrite());
+                if (_saveConnectionInformation == null) _saveConnectionInformation = new RelayCommand(p => SetOracleInformationStreamWriter());
                 return _saveConnectionInformation;
             }
         }
@@ -133,15 +136,19 @@ namespace Developer_Helper.ViewModel
             
         }
 
-        private void SetOracleInformationXmlWrite()
+        private void SetOracleInformationStreamWriter()
         {
-            var test =  System.Environment.CurrentDirectory;
-            var test2 = AppDomain.CurrentDomain.BaseDirectory;
-            using(var reader = new StreamReader(@""))
-            {
+            //프로그램 설치경로 || App.config에 정의한 xml경로를 concat해서 저장경로를 구한다.
+            string localPath = Common.getXmlLocalPath();
 
+            using (StreamWriter wr = new StreamWriter(localPath))
+            {
+                XmlSerializer xs = new XmlSerializer(typeof(OracleDataBaseConnection));
+                xs.Serialize(wr, this);
             }
         }
+
+        
 
         #endregion Method End
     }
