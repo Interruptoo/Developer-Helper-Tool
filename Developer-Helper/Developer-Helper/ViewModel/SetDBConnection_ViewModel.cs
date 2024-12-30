@@ -4,6 +4,8 @@ using Developer_Helper.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Channels;
@@ -11,6 +13,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using System.Xml;
+using System.Xml.Serialization;
 using WpfMvvm.Commands;
 
 namespace Developer_Helper.ViewModel
@@ -35,8 +39,8 @@ namespace Developer_Helper.ViewModel
         public SetDBConnection_ViewModel(Mediator mediator)
         {
             _mediator = mediator;
-
-            ConnectionInformation = Mediator.Instance.SharedModel;
+            
+            ConnectionInformation = OracleDataBaseConnection.Instance.SharedModel;
             
             new SettingDetail_ViewModel(_mediator);
 
@@ -71,6 +75,21 @@ namespace Developer_Helper.ViewModel
             {
                 if (_connectionTestCommand == null) _connectionTestCommand = new RelayCommand(p => ExcuteConnectionTest());
                 return _connectionTestCommand;
+            }
+        }
+
+        /// <summary>
+        /// author : yuminhio
+        /// date   : 2024-01-14
+        /// description : Save Oracle DB Information
+        /// </summary>
+        private ICommand _saveConnectionInformation;
+        public ICommand SaveConnectionInformation
+        {
+            get
+            {
+                if (_saveConnectionInformation == null) _saveConnectionInformation = new RelayCommand(p => SetOracleInformationStreamWriter());
+                return _saveConnectionInformation;
             }
         }
         #endregion Command End
@@ -116,6 +135,20 @@ namespace Developer_Helper.ViewModel
             }
             
         }
+
+        private void SetOracleInformationStreamWriter()
+        {
+            //프로그램 설치경로 || App.config에 정의한 xml경로를 concat해서 저장경로를 구한다.
+            string localPath = Common.getXmlLocalPath();
+
+            using (StreamWriter wr = new StreamWriter(localPath))
+            {
+                XmlSerializer xs = new XmlSerializer(typeof(OracleDataBaseConnection));
+                xs.Serialize(wr, this);
+            }
+        }
+
+        
 
         #endregion Method End
     }
