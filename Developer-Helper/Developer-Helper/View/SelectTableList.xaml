@@ -3,11 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:local="clr-namespace:Developer_Helper.View"
              xmlns:uc="clr-namespace:Developer_Helper.UC"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1600" Background="#FFF0F0F0">
 
+    <UserControl.DataContext>
+        <local:SelectTableList/>
+    </UserControl.DataContext>
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding }"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -98,7 +109,7 @@
                               AutoGenerateColumns="False" 
                               HorizontalAlignment="Stretch" 
                               VerticalAlignment="Stretch" 
-
+                              ItemsSource="{Binding _tableInfo}"
           
                               AllowDrop="True" 
                               CanUserAddRows="False"
@@ -152,7 +163,7 @@
                                         <Button HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="16" Width="16"
                 Background="Transparent" BorderBrush="Transparent" BorderThickness="0" ToolTip="SELECT 쿼리를 복사합니다." >
                                             <StackPanel Orientation="Horizontal">
-                                                <Image Width="16" Height="16" Source="/DH;component/Images/Icon/My-Documents-Inside-Green-128.png"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+                                                <Image Width="16" Height="16" Source="/Developer-Helper;component/Images/Icon/My-Documents-Inside-Green-128.png"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
                                             </StackPanel>
                                         </Button>
                                     </DataTemplate>
@@ -164,7 +175,7 @@
                                         <Button HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="16" Width="16"
                 Background="Transparent" BorderBrush="Transparent" BorderThickness="0" ToolTip="SELECT 쿼리를 복사합니다. (매개변수 포함)" >
                                             <StackPanel Orientation="Horizontal">
-                                                <Image Width="16" Height="16" Source="/DH;component/Images/Icon/My-Documents-Inside-Green-128.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+                                                <Image Width="16" Height="16" Source="/Developer-Helper;component/Images/Icon/My-Documents-Inside-Green-128.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
                                             </StackPanel>
                                         </Button>
                                     </DataTemplate>
@@ -177,7 +188,7 @@
                                         <Button HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="16" Width="16"
                 Background="Transparent" BorderBrush="Transparent" BorderThickness="0" ToolTip="데이터를 조회합니다." >
                                             <StackPanel Orientation="Horizontal">
-                                                <Image Width="14" Height="16" Source="/DH;component/Images/Icon/edit-redo.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+                                                <Image Width="14" Height="16" Source="/Developer-Helper;component/Images/Icon/edit-redo.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
                                             </StackPanel>
                                         </Button>
                                     </DataTemplate>
@@ -244,7 +255,7 @@
                                         <Button HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="16" Width="16"
             Background="Transparent" BorderBrush="Transparent" BorderThickness="0" ToolTip="SELECT 쿼리를 복사합니다." >
                                             <StackPanel Orientation="Horizontal">
-                                                <Image Width="16" Height="16" Source="/DH;component/Images/Icon/My-Documents-Inside-Green-128.png"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+                                                <Image Width="16" Height="16" Source="/Developer-Helper;component/Images/Icon/My-Documents-Inside-Green-128.png"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
                                             </StackPanel>
                                         </Button>
                                     </DataTemplate>
@@ -256,7 +267,7 @@
                                         <Button HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="16" Width="16"
             Background="Transparent" BorderBrush="Transparent" BorderThickness="0" ToolTip="SELECT 쿼리를 복사합니다. (매개변수 포함)" >
                                             <StackPanel Orientation="Horizontal">
-                                                <Image Width="16" Height="16" Source="/DH;component/Images/Icon/My-Documents-Inside-Green-128.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+                                                <Image Width="16" Height="16" Source="/Developer-Helper;component/Images/Icon/My-Documents-Inside-Green-128.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
                                             </StackPanel>
                                         </Button>
                                     </DataTemplate>
@@ -269,7 +280,7 @@
                                         <Button HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="16" Width="16"
             Background="Transparent" BorderBrush="Transparent" BorderThickness="0" ToolTip="데이터를 조회합니다." >
                                             <StackPanel Orientation="Horizontal">
-                                                <Image Width="14" Height="16" Source="/DH;component/Images/Icon/edit-redo.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+                                                <Image Width="14" Height="16" Source="/Developer-Helper;component/Images/Icon/edit-redo.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
                                             </StackPanel>
                                         </Button>
                                     </DataTemplate>

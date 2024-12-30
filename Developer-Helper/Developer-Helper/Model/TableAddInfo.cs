@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Developer_Helper.Model
 {
-    class TableInfo_Model : ModelBase
+    class TableAddInfo : ModelBase
     {
-        public string TableName { get; }
-        public string Owner {  get; }
-        public string TableCommant { get; }
-        
+        public string TABLE_NAME { get; set; }
+
+        public string COL_NAME { get; set; }
+        public string COL_VALUE { get; set; }
     }
 }
