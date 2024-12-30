@@ -24,5 +24,6 @@ namespace Developer_Helper.View
         {
             InitializeComponent();
         }
+
     }
 }
